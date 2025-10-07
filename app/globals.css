@@ -1,8 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #001011;
+  --foreground: #E8E3E3;
+  --teal: #619985;
+  --beige: #DFBD88;
+  --dark-olive: #414535;
+  
+  /* Additional color variants */
+  --teal-light: rgba(97, 153, 133, 0.2);
+  --teal-medium: rgba(97, 153, 133, 0.3);
+  --beige-light: rgba(223, 189, 136, 0.2);
+  --dark-olive-light: rgba(65, 69, 53, 0.3);
+  --background-light: rgba(0, 16, 17, 0.5);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--teal-light) 0%, var(--beige-light) 100%);
+  --gradient-background: linear-gradient(135deg, var(--dark-olive) 0%, var(--background) 100%);
 }
 
 @theme inline {
@@ -12,15 +26,60 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
-  background: var(--background);
+  background: var(--gradient-background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* Custom scrollbar for content area */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #414535;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #619985;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--beige);
+}
+
+/* Utility classes */
+.text-primary { color: var(--foreground); }
+.text-secondary { color: var(--teal); }
+.text-accent { color: var(--beige); }
+.bg-primary { background-color: var(--dark-olive); }
+.bg-secondary { background-color: var(--teal); }
+.bg-accent { background-color: var(--beige); }
+.bg-gradient-primary { background: var(--gradient-primary); }
+.bg-dark-olive-light { background-color: var(--dark-olive-light); }
+.bg-teal-light { background-color: var(--teal-light); }
+.bg-teal-medium { background-color: var(--teal-medium); }
+.bg-background-light { background-color: var(--background-light); }
+
+/* Hover effects */
+.hover-scale:hover { transform: scale(1.02); }
+.hover-scale-105:hover { transform: scale(1.05); }
+.hover-bg-teal-light:hover { background-color: var(--teal-light); }
+.hover-bg-teal-medium:hover { background-color: var(--teal-medium); }
+
+/* Transitions */
+.transition-all { transition: all 0.3s ease; }
+.transition-colors { transition: color 0.3s ease, background-color 0.3s ease; }
+.transition-transform { transition: transform 0.3s ease; }

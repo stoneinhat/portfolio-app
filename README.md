@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mac-Style Portfolio Application
+
+A beautiful, modern portfolio website built with Next.js 14, TypeScript, and Tailwind CSS, featuring a macOS-inspired window interface with a static sidebar navigation.
+
+## Features
+
+- **Mac Window Interface**: Authentic macOS-style window with functional traffic light buttons
+- **Static Sidebar Navigation**: Left sidebar with categories and social links (inspired by [amiralirashidi.me](https://amiralirashidi.me/))
+  - Full width (256px) with icons and labels on desktop
+  - Compact width (64px) with icons-only on mobile
+- **Smooth Scrolling**: Navigate between sections seamlessly
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Modern UI**: Clean, professional design with smooth animations and transitions
+- **Fullscreen Mode**: Green traffic light button enables fullscreen viewing
+- **Gradient Hero Card**: Eye-catching hero section with gradient background
+
+## Components
+
+- **MacWindow**: Main window container with traffic light controls
+- **Sidebar**: Static left sidebar with categories (About, Skills, Jobs, Projects, Educations) and social links
+- **Hero**: Prominent hero card with name, professional description, and download resume button
+- **Skills**: Grid showcase of technical skills with icons
+- **Experience**: Timeline of work experience
+- **Projects**: Grid showcase of projects with tech stack and links
+- **Education**: Educational background and certifications
+- **Contact**: Contact information and message form
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Customization
 
-## Learn More
+### Personal Information
+Edit the following files to add your personal information:
+- `components/Hero.tsx` - Name, professional description, and download resume button
+- `components/Sidebar.tsx` - Profile initials, categories, and social links
+- `components/Skills.tsx` - Your technical skills
+- `components/Experience.tsx` - Your work experience
+- `components/Projects.tsx` - Your projects
+- `components/Education.tsx` - Your educational background
+- `components/Contact.tsx` - Your contact information
 
-To learn more about Next.js, take a look at the following resources:
+### Styling
+- `app/globals.css` - Global styles and background gradient
+- Tailwind CSS classes throughout components for styling
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technology Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide React
+- **Package Manager**: npm
 
-## Deploy on Vercel
+## Build for Production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm run build
+npm start
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+MIT
