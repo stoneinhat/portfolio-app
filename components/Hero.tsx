@@ -1,6 +1,7 @@
 'use client';
 
 import { FileDown, User } from 'lucide-react';
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Hero() {
   return (
@@ -26,15 +27,10 @@ export default function Hero() {
                 </div>
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary">
-                Joshua Tesch
+                {portfolioData.name}
               </h1>
               <p className="text-lg md:text-xl mb-6 leading-relaxed max-w-2xl text-primary">
-                Full-Stack Developer and Computer Science student at Salt Lake Community College, 
-                specializing in modern web applications with React, Next.js, and TypeScript. 
-                Experienced in building production-ready solutions—from complex e-learning platforms 
-                with Stripe payments and CMS integration, to custom WordPress sites and API-driven 
-                dashboards. Passionate about creating seamless user experiences and writing clean, 
-                scalable code that solves real-world problems.
+                {portfolioData.about}
               </p>
               
               <a

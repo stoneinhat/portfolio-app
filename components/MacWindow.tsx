@@ -5,9 +5,10 @@ import { X, Minus, Maximize2 } from 'lucide-react';
 
 interface MacWindowProps {
   children: React.ReactNode;
+  onRedButtonClick?: () => void;
 }
 
-export default function MacWindow({ children }: MacWindowProps) {
+export default function MacWindow({ children, onRedButtonClick }: MacWindowProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const toggleFullscreen = () => {
@@ -27,10 +28,11 @@ export default function MacWindow({ children }: MacWindowProps) {
         <div className="px-4 py-3 flex items-center gap-2 flex-shrink-0" style={{ backgroundColor: 'rgba(65, 69, 53, 0.6)' }}>
           {/* Traffic Light Buttons */}
           <div className="flex gap-2">
-            {/* Red - Close (decorative) */}
+            {/* Red - Terminal Mode Toggle (functional) */}
             <button
+              onClick={onRedButtonClick}
               className="group w-3 h-3 rounded-full bg-red-500 hover:bg-red-600 flex items-center justify-center transition-all"
-              aria-label="Close"
+              aria-label="Toggle Terminal Mode"
             >
               <X className="w-2 h-2 text-red-900 opacity-0 group-hover:opacity-100 transition-opacity" />
             </button>

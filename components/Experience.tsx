@@ -1,33 +1,9 @@
 'use client';
 
-interface Experience {
-  title: string;
-  company: string;
-  period: string;
-  description: string;
-}
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Experience() {
-  const experiences: Experience[] = [
-    {
-      title: 'Senior Full Stack Developer',
-      company: 'Tech Corp',
-      period: '2022 - Present',
-      description: 'Leading development of enterprise web applications using React, Next.js, and Node.js. Mentoring junior developers and architecting scalable solutions.',
-    },
-    {
-      title: 'Full Stack Developer',
-      company: 'Digital Agency',
-      period: '2020 - 2022',
-      description: 'Built and maintained multiple client websites and web applications. Implemented responsive designs and optimized performance.',
-    },
-    {
-      title: 'Frontend Developer',
-      company: 'Startup Inc',
-      period: '2018 - 2020',
-      description: 'Developed user interfaces for SaaS products. Collaborated with designers and backend engineers to deliver high-quality features.',
-    },
-  ];
+  const experiences = portfolioData.experience;
 
   return (
     <section id="experience" className="py-20 px-4 md:px-6 bg-dark-olive-light">

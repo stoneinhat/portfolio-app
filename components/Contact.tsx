@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { portfolioData } from '@/lib/portfolioData';
 
 interface FormData {
   name: string;
@@ -59,10 +60,10 @@ export default function Contact() {
               <div>
                 <h4 className="font-medium mb-1 text-primary">Email</h4>
                 <a
-                  href="mailto:john@example.com"
+                  href={`mailto:${portfolioData.contact.email}`}
                   className="transition-colors text-accent hover:text-primary"
                 >
-                  john@example.com
+                  {portfolioData.contact.email}
                 </a>
               </div>
             </div>
@@ -74,10 +75,10 @@ export default function Contact() {
               <div>
                 <h4 className="font-medium mb-1 text-primary">Phone</h4>
                 <a
-                  href="tel:+1234567890"
+                  href={`tel:${portfolioData.contact.phone.replace(/\D/g, '')}`}
                   className="transition-colors text-accent hover:text-primary"
                 >
-                  +1 (234) 567-890
+                  {portfolioData.contact.phone}
                 </a>
               </div>
             </div>
@@ -88,7 +89,7 @@ export default function Contact() {
               </div>
               <div>
                 <h4 className="font-medium mb-1 text-primary">Location</h4>
-                <p className="text-primary">San Francisco, CA</p>
+                <p className="text-primary">{portfolioData.contact.location}</p>
               </div>
             </div>
           </div>

@@ -1,21 +1,7 @@
-interface Skill {
-  name: string;
-  icon: string;
-  color: string;
-}
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Skills() {
-  const skills: Skill[] = [
-    { name: 'HTML', icon: '🌐', color: 'bg-orange-600' },
-    { name: 'CSS/SCSS', icon: '🎨', color: 'bg-blue-600' },
-    { name: 'JavaScript', icon: 'JS', color: 'bg-yellow-500' },
-    { name: 'TypeScript', icon: 'TS', color: 'bg-blue-500' },
-    { name: 'Angular', icon: '🅰️', color: 'bg-red-600' },
-    { name: 'Vue', icon: '⚡', color: 'bg-green-500' },
-    { name: 'React', icon: '⚛️', color: 'bg-cyan-500' },
-    { name: 'Git', icon: '📦', color: 'bg-orange-500' },
-    { name: 'Linux', icon: '🐧', color: 'bg-gray-700' },
-  ];
+  const skills = portfolioData.skills;
 
   return (
     <section id="skills" className="py-20 px-4 md:px-6 bg-dark-olive-light">

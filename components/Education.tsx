@@ -1,23 +1,10 @@
 'use client';
 
 import { GraduationCap } from 'lucide-react';
-
-interface EducationItem {
-  degree: string;
-  school: string;
-  period: string;
-  description: string;
-}
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Education() {
-  const education: EducationItem[] = [
-    {
-      degree: 'Associates of Science in Computer Science',
-      school: 'Salt Lake Community College',
-      period: '2024 - 2025',
-      description: 'Focused on software engineering, algorithms, and web development. Graduated with honors.',
-    },
-  ];
+  const education = portfolioData.education;
 
   return (
     <section id="education" className="py-20 px-4 md:px-6">

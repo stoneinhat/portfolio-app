@@ -83,3 +83,6 @@ body {
 .transition-all { transition: all 0.3s ease; }
 .transition-colors { transition: color 0.3s ease, background-color 0.3s ease; }
 .transition-transform { transition: transform 0.3s ease; }
+
+/* Font families */
+.font-fira-code { font-family: var(--font-fira-code), monospace; }

@@ -1,39 +1,10 @@
 'use client';
 
 import { ExternalLink, Github } from 'lucide-react';
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  github: string;
-  demo: string;
-}
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Projects() {
-  const projects: Project[] = [
-    {
-      title: 'The Piped Peony Academy',
-      description: 'Full-featured e-learning platform for buttercream piping courses with subscription management, e-commerce shop, video library, recipe database, user authentication, and Stripe payment integration.',
-      technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Clerk Auth', 'Stripe', 'Strapi CMS', 'Radix UI', 'shadcn/ui'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
-    },
-    {
-      title: 'Modern Metals Website',
-      description: 'Custom WordPress marketing site with portfolio galleries, team profiles, testimonials, and a contact modal.',
-      technologies: ['WordPress', 'PHP', 'JavaScript', 'HTML', 'CSS'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather dashboard with forecasts, maps, and location-based weather alerts.',
-      technologies: ['React', 'TypeScript', 'OpenWeather API', 'Tailwind CSS'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
-    },
-  ];
+  const projects = portfolioData.projects;
 
   return (
     <section id="projects" className="py-20 px-4 md:px-6">

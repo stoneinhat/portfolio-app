@@ -160,21 +160,56 @@ const InteractiveBackground = () => {
         init();
         animate();
 
-        // Listen to scroll events from the scrollable container
-        const scrollContainer = document.querySelector('[data-scroll-container]');
-        if (scrollContainer) {
-            scrollContainer.addEventListener('scroll', handleScroll);
-        }
+        // Store reference to current scroll container
+        let currentScrollContainer: HTMLElement | null = null;
+
+        // Function to attach scroll listener to the container
+        const attachScrollListener = () => {
+            const scrollContainer = document.querySelector('[data-scroll-container]') as HTMLElement | null;
+            
+            // Only attach if we found a new container
+            if (scrollContainer && scrollContainer !== currentScrollContainer) {
+                // Remove listener from old container if it exists
+                if (currentScrollContainer) {
+                    currentScrollContainer.removeEventListener('scroll', handleScroll);
+                }
+                
+                // Attach to new container
+                scrollContainer.addEventListener('scroll', handleScroll);
+                currentScrollContainer = scrollContainer;
+                
+                // Reset scroll position tracking
+                lastScrollY = scrollContainer.scrollTop || 0;
+            }
+        };
+
+        // Initial attachment
+        attachScrollListener();
+
+        // Use MutationObserver to detect when scroll container is added/removed
+        const observer = new MutationObserver(() => {
+            attachScrollListener();
+        });
+
+        // Observe changes to the document body
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['data-scroll-container']
+        });
+
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
 
         // Cleanup function
         return () => {
-            if (scrollContainer) {
-                scrollContainer.removeEventListener('scroll', handleScroll);
+            if (currentScrollContainer) {
+                currentScrollContainer.removeEventListener('scroll', handleScroll);
             }
             window.removeEventListener('scroll', handleScroll);
             window.removeEventListener('resize', handleResize);
+            observer.disconnect();
             cancelAnimationFrame(animationFrameId);
         };
 
