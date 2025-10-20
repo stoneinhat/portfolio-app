@@ -12,16 +12,10 @@ interface EducationItem {
 export default function Education() {
   const education: EducationItem[] = [
     {
-      degree: 'Bachelor of Science in Computer Science',
-      school: 'University of Technology',
-      period: '2014 - 2018',
+      degree: 'Associates of Science in Computer Science',
+      school: 'Salt Lake Community College',
+      period: '2024 - 2025',
       description: 'Focused on software engineering, algorithms, and web development. Graduated with honors.',
-    },
-    {
-      degree: 'Full Stack Web Development Bootcamp',
-      school: 'Tech Academy',
-      period: '2018',
-      description: 'Intensive 12-week program covering modern web technologies including React, Node.js, and databases.',
     },
   ];
 

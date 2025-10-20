@@ -13,16 +13,16 @@ interface Project {
 export default function Projects() {
   const projects: Project[] = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-featured e-commerce platform with payment integration, inventory management, and admin dashboard.',
-      technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
+      title: 'The Piped Peony Academy',
+      description: 'Full-featured e-learning platform for buttercream piping courses with subscription management, e-commerce shop, video library, recipe database, user authentication, and Stripe payment integration.',
+      technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Clerk Auth', 'Stripe', 'Strapi CMS', 'Radix UI', 'shadcn/ui'],
       github: 'https://github.com',
       demo: 'https://example.com',
     },
     {
-      title: 'Task Management App',
-      description: 'Real-time collaborative task management application with team features and project tracking.',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
+      title: 'Modern Metals Website',
+      description: 'Custom WordPress marketing site with portfolio galleries, team profiles, testimonials, and a contact modal.',
+      technologies: ['WordPress', 'PHP', 'JavaScript', 'HTML', 'CSS'],
       github: 'https://github.com',
       demo: 'https://example.com',
     },
