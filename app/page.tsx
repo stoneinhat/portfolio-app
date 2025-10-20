@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <MacWindow>
       <Sidebar />
-      <main className="flex-grow overflow-y-auto custom-scrollbar">
+      <main className="flex-grow overflow-y-auto custom-scrollbar" data-scroll-container>
         <Hero />
         <Skills />
         <Experience />

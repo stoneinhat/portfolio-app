@@ -22,9 +22,9 @@ export default function MacWindow({ children }: MacWindowProps) {
 
   return (
     <div className="flex items-center justify-center min-h-screen p-4">
-      <div className="w-full max-w-6xl h-[90vh] rounded-xl shadow-2xl flex flex-col overflow-hidden" style={{ backgroundColor: '#001011' }}>
+      <div className="w-full max-w-6xl h-[90vh] rounded-xl shadow-2xl flex flex-col overflow-hidden" style={{ backgroundColor: 'rgba(0, 16, 17, 0.6)' }}>
         {/* Title Bar */}
-        <div className="px-4 py-3 flex items-center gap-2 flex-shrink-0" style={{ backgroundColor: '#414535' }}>
+        <div className="px-4 py-3 flex items-center gap-2 flex-shrink-0" style={{ backgroundColor: 'rgba(65, 69, 53, 0.6)' }}>
           {/* Traffic Light Buttons */}
           <div className="flex gap-2">
             {/* Red - Close (decorative) */}
@@ -55,7 +55,7 @@ export default function MacWindow({ children }: MacWindowProps) {
         </div>
 
         {/* Content Area with Sidebar Layout */}
-        <div className="flex-grow flex overflow-hidden" style={{ backgroundColor: '#001011' }}>
+        <div className="flex-grow flex overflow-hidden" style={{ backgroundColor: 'rgba(0, 16, 17, 0.6)' }}>
           {children}
         </div>
       </div>
