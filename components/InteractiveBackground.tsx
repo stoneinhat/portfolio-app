@@ -591,6 +591,12 @@ const InteractiveBackground = ({ isInteractive = false, viewMode = 'mac', isMini
             mouseY = -1000;
         };
 
+        const handleTouchEnd = () => {
+            // Reset interaction point so the exclusion radius doesn't stick on mobile
+            mouseX = -1000;
+            mouseY = -1000;
+        };
+
         // Scroll event handler
         const handleScroll = (e: Event) => {
             const target = e.target as HTMLElement;
@@ -657,7 +663,9 @@ const InteractiveBackground = ({ isInteractive = false, viewMode = 'mac', isMini
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('resize', handleResize);
         window.addEventListener('mousemove', handleMouseMove);
-        window.addEventListener('touchmove', handleTouchMove);
+        window.addEventListener('touchmove', handleTouchMove, { passive: true });
+        window.addEventListener('touchend', handleTouchEnd, { passive: true });
+        window.addEventListener('touchcancel', handleTouchEnd, { passive: true });
         window.addEventListener('mouseleave', handleMouseLeave);
 
         // Cleanup function
@@ -669,6 +677,8 @@ const InteractiveBackground = ({ isInteractive = false, viewMode = 'mac', isMini
             window.removeEventListener('resize', handleResize);
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('touchmove', handleTouchMove);
+            window.removeEventListener('touchend', handleTouchEnd);
+            window.removeEventListener('touchcancel', handleTouchEnd);
             window.removeEventListener('mouseleave', handleMouseLeave);
             observer.disconnect();
             cancelAnimationFrame(animationFrameId);

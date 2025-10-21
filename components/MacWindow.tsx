@@ -47,7 +47,7 @@ export default function MacWindow({ children, onRedButtonClick, onYellowButtonCl
       <div 
         className={`mac-window-content rounded-xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300 pointer-events-auto ${
           isMinimized 
-            ? 'h-[50px] w-auto translate-y-[calc(50vh-25px)]' 
+            ? 'h-[50px] w-auto translate-y-0 fixed top-0 left-0 right-0 mx-4 z-40 md:mx-0 md:relative md:translate-y-[calc(50vh-25px)]' 
             : 'w-full max-w-6xl h-[90vh]'
         }`}
         style={{ backgroundColor: 'rgba(0, 16, 17, 0.6)' }}
@@ -103,13 +103,13 @@ export default function MacWindow({ children, onRedButtonClick, onYellowButtonCl
                     max="250"
                     value={interactionRadius}
                     onChange={(e) => onRadiusChange?.(parseInt(e.target.value))}
-                    className="w-28 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                    className="w-24 md:w-28 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
                     style={{
                       background: `linear-gradient(to right, #618985 0%, #618985 ${((interactionRadius - 20) / (250 - 20)) * 100}%, #4a5568 ${((interactionRadius - 20) / (250 - 20)) * 100}%, #4a5568 100%)`
                     }}
                   />
                 </div>
-                <span className="text-xs text-gray-300 font-mono w-10 text-right flex-shrink-0">
+                <span className="hidden md:inline text-xs text-gray-300 font-mono w-10 text-right flex-shrink-0">
                   {interactionRadius}
                 </span>
               </div>
@@ -125,13 +125,13 @@ export default function MacWindow({ children, onRedButtonClick, onYellowButtonCl
                     step="100"
                     value={ballCount}
                     onChange={(e) => onBallCountChange?.(parseInt(e.target.value))}
-                    className="w-28 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                    className="w-24 md:w-28 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
                     style={{
                       background: `linear-gradient(to right, #DFBD88 0%, #DFBD88 ${((ballCount - 100) / (5000 - 100)) * 100}%, #4a5568 ${((ballCount - 100) / (5000 - 100)) * 100}%, #4a5568 100%)`
                     }}
                   />
                 </div>
-                <span className="text-xs text-gray-300 font-mono w-10 text-right flex-shrink-0">
+                <span className="hidden md:inline text-xs text-gray-300 font-mono w-10 text-right flex-shrink-0">
                   {ballCount}
                 </span>
               </div>
