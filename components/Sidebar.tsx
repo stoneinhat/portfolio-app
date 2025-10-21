@@ -40,13 +40,27 @@ export default function Sidebar({ activeSection = 'about' }: SidebarProps) {
   return (
     <aside className="w-16 md:w-64 backdrop-blur-sm border-r flex flex-col h-full bg-dark-olive-light" style={{ borderColor: 'rgba(97, 153, 133, 0.3)' }}>
       {/* Profile Picture Section */}
-      <div className="hidden md:flex p-3 md:p-5 justify-center flex-shrink-0">
-        <div className="relative w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden ring-2 shadow-lg ring-[rgba(97,153,133,0.5)]">
+      {/* Mobile: classic circular avatar */}
+      <div className="flex md:hidden p-3 justify-center flex-shrink-0">
+        <div className="w-10 h-10 rounded-full overflow-hidden ring-2 shadow-lg ring-[rgba(97,153,133,0.5)]">
           <Image
             src="/Joshua (2).JPG"
             alt="Profile Picture"
-            fill
-            className="object-cover"
+            width={40}
+            height={40}
+            className="object-cover w-10 h-10"
+            priority
+          />
+        </div>
+      </div>
+      <div className="hidden md:flex p-3 md:p-5 justify-center flex-shrink-0">
+        <div className="w-16 h-16 rounded-full overflow-hidden ring-2 shadow-lg ring-[rgba(97,153,133,0.5)]">
+          <Image
+            src="/Joshua (2).JPG"
+            alt="Profile Picture"
+            width={64}
+            height={64}
+            className="object-cover w-16 h-16"
             priority
           />
         </div>

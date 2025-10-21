@@ -43,12 +43,12 @@ export default function MacWindow({ children, onRedButtonClick, onYellowButtonCl
   );
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 w-full overflow-x-hidden pointer-events-none">
+    <div className="w-screen h-screen overflow-hidden pointer-events-none md:flex md:items-center md:justify-center md:p-4 md:min-h-screen md:w-full">
       <div 
         className={`mac-window-content rounded-none shadow-none md:rounded-xl md:shadow-2xl flex flex-col overflow-hidden transition-all duration-300 pointer-events-auto ${
           isMinimized 
             ? 'h-[50px] w-auto translate-y-0 fixed top-2 left-1/2 -translate-x-1/2 z-40 max-w-[90vw] md:mx-0 md:relative md:top-auto md:left-auto md:translate-x-0 md:translate-y-[calc(50vh-25px)]' 
-            : 'w-full max-w-6xl h-[90vh]'
+            : 'w-full h-full md:w-full md:max-w-6xl md:h-[90vh]'
         }`}
         style={{ backgroundColor: 'rgba(0, 16, 17, 0.6)' }}
       >
