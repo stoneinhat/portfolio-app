@@ -214,7 +214,7 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
   return (
     <div 
       ref={terminalRef}
-      className="w-full h-full p-4 overflow-y-auto bg-black text-white terminal-scrollbar"
+      className="w-full h-full p-4 overflow-y-auto overflow-x-hidden bg-black text-white terminal-scrollbar break-words"
       onClick={handleTerminalClick}
       style={{ fontFamily: "'Fira Code', monospace" }}
     >
@@ -235,6 +235,10 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
         .terminal-scrollbar::-webkit-scrollbar-thumb:hover {
           background: #555;
         }
+        #terminal-output, #terminal-output * {
+          word-break: break-word;
+          overflow-wrap: anywhere;
+        }
       `}</style>
       
       <div id="terminal-output">
@@ -243,7 +247,7 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
         ))}
       </div>
       
-      <div className="flex items-center mt-2">
+      <div className="flex items-center mt-2 min-w-0">
         <span className="text-green-400">user@jtesch-portfolio:~$</span>
         <input
           ref={inputRef}
@@ -251,7 +255,7 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="bg-transparent border-none flex-grow ml-2 p-0 text-white focus:outline-none"
+          className="bg-transparent border-none flex-grow min-w-0 ml-2 p-0 text-white focus:outline-none"
           autoComplete="off"
           spellCheck="false"
         />

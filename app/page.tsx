@@ -58,7 +58,7 @@ export default function Home() {
         {viewMode === 'mac' ? (
           <>
             <Sidebar />
-            <main className="flex-grow overflow-y-auto custom-scrollbar" data-scroll-container>
+            <main className="flex-grow min-w-0 overflow-y-auto overflow-x-hidden custom-scrollbar" data-scroll-container>
               <Hero />
               <Skills />
               <Experience />

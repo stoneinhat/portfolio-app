@@ -10,8 +10,15 @@ interface SidebarProps {
 export default function Sidebar({ activeSection = 'about' }: SidebarProps) {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    const container = document.querySelector('.custom-scrollbar') as HTMLElement | null;
+    if (element && container) {
+      const elementRect = element.getBoundingClientRect();
+      const containerRect = container.getBoundingClientRect();
+      const targetTop = elementRect.top - containerRect.top + container.scrollTop;
+      container.scrollTo({ top: targetTop, behavior: 'smooth' });
+    } else if (element) {
+      // Fallback: smooth scroll if container not found
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
@@ -33,7 +40,7 @@ export default function Sidebar({ activeSection = 'about' }: SidebarProps) {
   return (
     <aside className="w-16 md:w-64 backdrop-blur-sm border-r flex flex-col h-full bg-dark-olive-light" style={{ borderColor: 'rgba(97, 153, 133, 0.3)' }}>
       {/* Profile Picture Section */}
-      <div className="p-3 md:p-5 flex justify-center flex-shrink-0">
+      <div className="hidden md:flex p-3 md:p-5 justify-center flex-shrink-0">
         <div className="relative w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden ring-2 shadow-lg ring-[rgba(97,153,133,0.5)]">
           <Image
             src="/Joshua (2).JPG"
@@ -70,8 +77,11 @@ export default function Sidebar({ activeSection = 'about' }: SidebarProps) {
         </nav>
       </div>
 
+      {/* Divider on mobile between categories and social */}
+      <div className="md:hidden border-t my-2 mx-1" style={{ borderColor: 'rgba(97, 153, 133, 0.25)' }} />
+
       {/* Social Links Section */}
-      <div className="mt-auto">
+      <div className="mt-4 md:mt-auto">
         <h2 className="hidden md:block text-xs font-semibold uppercase tracking-wider mb-3 text-accent">
           Social Link
         </h2>

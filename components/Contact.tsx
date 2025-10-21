@@ -44,7 +44,7 @@ export default function Contact() {
     }
   };
   return (
-    <section id="contact" className="py-20 px-4 md:px-6 bg-dark-olive-light">
+    <section id="contact" className="py-20 px-4 md:px-6 bg-dark-olive-light overflow-x-hidden">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-12 text-primary">Get In Touch</h2>
         
@@ -61,7 +61,7 @@ export default function Contact() {
                 <h4 className="font-medium mb-1 text-primary">Email</h4>
                 <a
                   href={`mailto:${portfolioData.contact.email}`}
-                  className="transition-colors text-accent hover:text-primary"
+                  className="transition-colors break-words text-accent hover:text-primary"
                 >
                   {portfolioData.contact.email}
                 </a>
@@ -76,7 +76,7 @@ export default function Contact() {
                 <h4 className="font-medium mb-1 text-primary">Phone</h4>
                 <a
                   href={`tel:${portfolioData.contact.phone.replace(/\D/g, '')}`}
-                  className="transition-colors text-accent hover:text-primary"
+                  className="transition-colors break-words text-accent hover:text-primary"
                 >
                   {portfolioData.contact.phone}
                 </a>
