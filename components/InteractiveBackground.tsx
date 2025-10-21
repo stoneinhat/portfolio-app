@@ -2,6 +2,12 @@
 
 import React, { useRef, useEffect } from 'react';
 
+// Colors from the provided palette (module scope for stable reference)
+const colors = {
+    background: '#001011',
+    dotColors: ['#618985', '#414535', '#DFBD88', '#E8E3E3']
+};
+
 interface InteractiveBackgroundProps {
     isInteractive?: boolean;
     viewMode?: 'mac' | 'terminal';
@@ -47,11 +53,7 @@ const InteractiveBackground = ({ isInteractive = false, viewMode = 'mac', isMini
         ballCountRef.current = ballCount;
     }, [ballCount]);
 
-    // Colors from the provided palette
-    const colors = {
-        background: '#001011',
-        dotColors: ['#618985', '#414535', '#DFBD88', '#E8E3E3']
-    };
+    // colors are defined at module scope to avoid effect deps noise
 
     useEffect(() => {
         const canvas = canvasRef.current;
