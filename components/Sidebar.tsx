@@ -31,20 +31,20 @@ export default function Sidebar({ activeSection = 'about' }: SidebarProps) {
   ];
 
   const socialLinks = [
-    { label: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com' },
-    { label: 'GitHub', icon: Github, href: 'https://github.com' },
-    { label: 'Phone', icon: Phone, href: 'tel:+1234567890' },
-    { label: 'Email', icon: Mail, href: 'mailto:john@example.com' },
+    { label: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/joshua-tesch-b10848100' },
+    { label: 'GitHub', icon: Github, href: 'https://github.com/stoneinhat' },
+    { label: 'Phone', icon: Phone, href: 'tel:+13853130636' },
+    { label: 'Email', icon: Mail, href: 'mailto:atreusassociates@gmail.com' },
   ];
 
   return (
-    <aside className="w-16 md:w-64 backdrop-blur-sm border-r flex flex-col h-full bg-dark-olive-light" style={{ borderColor: 'rgba(97, 153, 133, 0.3)' }}>
+    <aside className="w-16 md:w-64 border-r flex flex-col h-full bg-dark-olive-light" style={{ borderColor: 'rgba(97, 153, 133, 0.3)' }}>
       {/* Profile Picture Section */}
       {/* Mobile: classic circular avatar */}
       <div className="flex md:hidden p-3 justify-center flex-shrink-0">
         <div className="w-10 h-10 rounded-full overflow-hidden ring-2 shadow-lg ring-[rgba(97,153,133,0.5)]">
           <Image
-            src="/Joshua (2).JPG"
+            src="/Joshua zoomed in.png"
             alt="Profile Picture"
             width={40}
             height={40}
@@ -53,10 +53,11 @@ export default function Sidebar({ activeSection = 'about' }: SidebarProps) {
           />
         </div>
       </div>
+      {/* Desktop: larger avatar */}
       <div className="hidden md:flex p-3 md:p-5 justify-center flex-shrink-0">
         <div className="w-16 h-16 rounded-full overflow-hidden ring-2 shadow-lg ring-[rgba(97,153,133,0.5)]">
           <Image
-            src="/Joshua (2).JPG"
+            src="/Joshua zoomed in.png"
             alt="Profile Picture"
             width={64}
             height={64}

@@ -16,7 +16,7 @@ interface InteractiveBackgroundProps {
     ballCount?: number;
 }
 
-const InteractiveBackground = ({ isInteractive = false, viewMode = 'mac', isMinimized = false, interactionRadius = 75, ballCount = 1000 }: InteractiveBackgroundProps) => {
+const InteractiveBackground = ({ isInteractive = false, viewMode = 'mac', isMinimized = false, interactionRadius = 75, ballCount = 400 }: InteractiveBackgroundProps) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const isInteractiveRef = useRef(isInteractive);
     const viewModeRef = useRef(viewMode);

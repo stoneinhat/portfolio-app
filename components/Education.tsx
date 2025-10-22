@@ -1,5 +1,3 @@
-'use client';
-
 import { GraduationCap } from 'lucide-react';
 import { portfolioData } from '@/lib/portfolioData';
 
@@ -14,7 +12,7 @@ export default function Education() {
           {education.map((edu, index) => (
             <div
               key={index}
-              className="rounded-lg p-6 transition-all hover-scale bg-primary hover-bg-teal-light"
+              className="rounded-lg p-6 bg-primary"
             >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-lg flex-shrink-0 bg-secondary">
@@ -26,6 +24,9 @@ export default function Education() {
                     <span className="text-sm md:text-base text-accent">{edu.period}</span>
                   </div>
                   <p className="mb-3 text-secondary">{edu.school}</p>
+                  {edu.certificates && (
+                    <p className="mb-2 text-primary">{edu.certificates}</p>
+                  )}
                   <p className="leading-relaxed text-primary">{edu.description}</p>
                 </div>
               </div>

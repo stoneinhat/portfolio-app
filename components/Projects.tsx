@@ -1,5 +1,3 @@
-'use client';
-
 import { ExternalLink, Github } from 'lucide-react';
 import { portfolioData } from '@/lib/portfolioData';
 
@@ -14,7 +12,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="rounded-lg p-6 hover-scale-105 transition-all bg-primary hover-bg-teal-light"
+              className="rounded-lg p-6 bg-primary"
             >
               <h3 className="text-xl font-semibold mb-3 text-primary">{project.title}</h3>
               <p className="mb-4 text-primary">{project.description}</p>

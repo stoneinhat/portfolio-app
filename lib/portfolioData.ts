@@ -27,6 +27,7 @@ export interface EducationItem {
   school: string;
   period: string;
   description: string;
+  certificates?: string;
 }
 
 export interface ContactInfo {
@@ -49,20 +50,22 @@ export const portfolioData: PortfolioData = {
   name: "Joshua Tesch",
   about: "Full-Stack Developer and Computer Science student at Salt Lake Community College, specializing in modern web applications with React, Next.js, and TypeScript. Experienced in building production-ready solutions—from complex e-learning platforms with Stripe payments and CMS integration, to custom WordPress sites and API-driven dashboards. Passionate about creating seamless user experiences and writing clean, scalable code that solves real-world problems.",
   contact: {
-    email: "joshua.tesch@example.com",
-    phone: "+1 (801) 123-4567",
+    email: "atreusassociates@gmail.com",
+    phone: "+1 (385) 313-0636",
     location: "Salt Lake City, UT"
   },
   skills: [
-    { name: 'HTML', icon: '🌐', color: 'bg-orange-600' },
-    { name: 'CSS/SCSS', icon: '🎨', color: 'bg-blue-600' },
-    { name: 'JavaScript', icon: 'JS', color: 'bg-yellow-500' },
-    { name: 'TypeScript', icon: 'TS', color: 'bg-blue-500' },
-    { name: 'Angular', icon: '🅰️', color: 'bg-red-600' },
-    { name: 'Vue', icon: '⚡', color: 'bg-green-500' },
-    { name: 'React', icon: '⚛️', color: 'bg-cyan-500' },
-    { name: 'Git', icon: '📦', color: 'bg-orange-500' },
-    { name: 'Linux', icon: '🐧', color: 'bg-gray-700' },
+    { name: 'HTML', icon: '/html5-without-wordmark-color-logo-png_seeklogo-184157.png', color: '' },
+    { name: 'CSS', icon: 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg', color: '' },
+    { name: 'JavaScript', icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png', color: '' },
+    { name: 'TypeScript', icon: '/ts-logo-round-128.svg', color: '' },
+    { name: 'Kotlin', icon: '/Kotlin Full Color Logo Mark RGB.svg', color: '' },
+    { name: 'Next.js', icon: '/Next.js_Symbol_Alternative_1.png', color: '' },
+    { name: 'React', icon: '/react.png', color: '' },
+    { name: 'Git', icon: '/icons8-git.svg', color: '' },
+    { name: 'Linux', icon: '/500px-NewTux.svg.png', color: '' },
+    { name: 'Cisco', icon: '/Cisco_logo_blue_2016.svg.png', color: '' },
+    { name: 'WordPress', icon: '/WordPress-logotype-simplified.png', color: '' },
   ],
   experience: [
     {
@@ -89,30 +92,31 @@ export const portfolioData: PortfolioData = {
       title: 'The Piped Peony Academy',
       description: 'Full-featured e-learning platform for buttercream piping courses with subscription management, e-commerce shop, video library, recipe database, user authentication, and Stripe payment integration.',
       technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Clerk Auth', 'Stripe', 'Strapi CMS', 'Radix UI', 'shadcn/ui'],
-      github: 'https://github.com',
+      github: 'https://github.com/stoneinhat',
       demo: 'https://example.com',
     },
     {
       title: 'Modern Metals Website',
       description: 'Custom WordPress marketing site with portfolio galleries, team profiles, testimonials, and a contact modal.',
       technologies: ['WordPress', 'PHP', 'JavaScript', 'HTML', 'CSS'],
-      github: 'https://github.com',
+      github: 'https://github.com/stoneinhat',
       demo: 'https://example.com',
     },
     {
       title: 'Weather Dashboard',
       description: 'Beautiful weather dashboard with forecasts, maps, and location-based weather alerts.',
       technologies: ['React', 'TypeScript', 'OpenWeather API', 'Tailwind CSS'],
-      github: 'https://github.com',
+      github: 'https://github.com/stoneinhat',
       demo: 'https://example.com',
     },
   ],
   education: [
     {
-      degree: 'Associates of Science in Computer Science',
+      degree: 'Associate of Science in Computer Science',
       school: 'Salt Lake Community College',
       period: '2024 - 2025',
-      description: 'Focused on software engineering, algorithms, and web development. Graduated with honors.',
+      certificates: 'With Certificates of Proficiency in Network & Cybersecurity, Network & Systems Administration, and Linux Administration.',
+      description: 'Focused on securing and administering mixed Windows/Linux environments: network design and hardening, identity and access management, virtualization and containerization, scripting and automation, monitoring and SIEM-driven analysis, backup and recovery, and incident response across on-prem and cloud. Graduated with honors.',
     },
   ],
 };

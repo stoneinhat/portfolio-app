@@ -1,4 +1,5 @@
 import { portfolioData } from '@/lib/portfolioData';
+import Image from 'next/image';
 
 export default function Skills() {
   const skills = portfolioData.skills;
@@ -11,10 +12,17 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center p-6 rounded-2xl hover-scale-105 transition-all bg-primary hover-bg-teal-light"
+              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-primary"
             >
-              <div className={`w-16 h-16 ${skill.color} rounded-xl flex items-center justify-center text-2xl mb-4 shadow-lg`}>
-                {skill.icon}
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 shadow-lg overflow-hidden bg-transparent">
+                <Image
+                  src={skill.icon}
+                  alt={`${skill.name} logo`}
+                  width={64}
+                  height={64}
+                  className="object-contain w-16 h-16"
+                  loading="lazy"
+                />
               </div>
               <h3 className="font-medium text-center text-primary">{skill.name}</h3>
             </div>

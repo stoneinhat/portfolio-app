@@ -15,7 +15,7 @@ interface MacWindowProps {
   viewMode?: 'mac' | 'terminal';
 }
 
-export default function MacWindow({ children, onRedButtonClick, onYellowButtonClick, isMinimized, interactionRadius = 75, onRadiusChange, ballCount = 1000, onBallCountChange, viewMode = 'mac' }: MacWindowProps) {
+export default function MacWindow({ children, onRedButtonClick, onYellowButtonClick, isMinimized, interactionRadius = 75, onRadiusChange, ballCount = 400, onBallCountChange, viewMode = 'mac' }: MacWindowProps) {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const toggleFullscreen = () => {
@@ -43,7 +43,7 @@ export default function MacWindow({ children, onRedButtonClick, onYellowButtonCl
   );
 
   return (
-    <div className="w-screen h-screen overflow-hidden pointer-events-none md:flex md:items-center md:justify-center md:p-4 md:min-h-screen md:w-full">
+    <div className="w-screen h-[100dvh] overflow-hidden pointer-events-none md:flex md:items-center md:justify-center md:p-4 md:min-h-screen md:w-full">
       <div 
         className={`mac-window-content rounded-none shadow-none md:rounded-xl md:shadow-2xl flex flex-col overflow-hidden transition-all duration-300 pointer-events-auto ${
           isMinimized 

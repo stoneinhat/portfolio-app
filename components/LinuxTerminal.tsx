@@ -14,6 +14,7 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
   const [historyIndex, setHistoryIndex] = useState(-1);
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+	const [messageFlow, setMessageFlow] = useState<'idle' | 'awaitStart' | 'composing' | 'submitting'>('idle');
 
   useEffect(() => {
     // Show welcome message on mount
@@ -63,6 +64,7 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
           <li><span class="font-bold text-green-400">clear</span>      - Clear the terminal screen.</li>
           <li><span class="font-bold text-green-400">back</span>       - Go back to MacWindow view.</li>
           <li><span class="font-bold text-green-400">sudo</span>       - Request superuser privileges.</li>
+          <li><span class="font-bold text-green-400">message</span>    - Send a Slack message to Joshua.</li>
         </ul>
       </div>
     `,
@@ -148,6 +150,14 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
       return '<div class="p-2">Navigating back to MacWindow...</div>';
     },
     sudo: () => '<div class="p-2 text-red-500">user is not in the sudoers file. This incident will be reported.</div>',
+    message: () => {
+      setMessageFlow('awaitStart');
+      return `
+        <div class="p-2">
+          <p>Please press ENTER to begin a message to Joshua via Slack. Please include your email in your message then press ENTER again to send. Press ESC if you'd rather not.</p>
+        </div>
+      `;
+    },
   };
 
   const handleCommand = (command: string) => {
@@ -183,7 +193,70 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // Message flow handling
+    if (messageFlow !== 'idle') {
+      if (e.key === 'Escape') {
+        // Cancel flow
+        setMessageFlow('idle');
+        setInputValue('');
+        setOutput(prev => [...prev, '<div class="p-2 text-gray-400">Message cancelled.</div>']);
+        return;
+      }
+
+      if (messageFlow === 'awaitStart') {
+        if (e.key === 'Enter') {
+          // Enter compose mode
+          setMessageFlow('composing');
+          setInputValue('');
+          setOutput(prev => [...prev, '<div class="p-2 text-gray-400">Compose mode started. Type your message and press ENTER to send. Press ESC to cancel.</div>']);
+        }
+        return;
+      }
+
+      if (messageFlow === 'composing') {
+        if (e.key === 'Enter') {
+          const message = inputValue.trim();
+          if (!message) {
+            // ignore empty send
+            return;
+          }
+          setMessageFlow('submitting');
+          try {
+            const response = await fetch('/api/contact', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ message }),
+            });
+            if (!response.ok) {
+              throw new Error(`Server responded with ${response.status}`);
+            }
+            setOutput(prev => [
+              ...prev,
+              '<div class="p-2 text-green-400">Message sent to Slack.</div>'
+            ]);
+            setInputValue('');
+            setMessageFlow('idle');
+          } catch (err) {
+            console.error('Failed to send message', err);
+            setOutput(prev => [
+              ...prev,
+              '<div class="p-2 text-red-500">Failed to send. Try again.</div>'
+            ]);
+            setMessageFlow('idle');
+          }
+        }
+        return;
+      }
+
+      // When submitting, block input
+      if (messageFlow === 'submitting') {
+        e.preventDefault();
+        return;
+      }
+    }
+
+    // Normal terminal handling
     if (e.key === 'Enter') {
       handleCommand(inputValue);
       setInputValue('');
@@ -248,17 +321,20 @@ export default function LinuxTerminal({ onBack }: LinuxTerminalProps) {
       </div>
       
       <div className="flex items-center mt-2 min-w-0">
-        <span className="text-green-400">user@jtesch-portfolio:~$</span>
+        <span className={messageFlow === 'composing' ? 'text-accent' : 'text-green-400'}>user@jtesch-portfolio:~$</span>
         <input
           ref={inputRef}
           type="text"
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="bg-transparent border-none flex-grow min-w-0 ml-2 p-0 text-white focus:outline-none"
+          className={`bg-transparent border-none flex-grow min-w-0 ml-2 p-0 focus:outline-none ${messageFlow === 'composing' ? 'text-accent' : 'text-white'}`}
           autoComplete="off"
           spellCheck="false"
         />
+        {messageFlow === 'composing' && (
+          <span className="ml-2 inline-block bg-white animate-pulse" style={{ width: '6px', height: '1.2em' }} />
+        )}
       </div>
     </div>
   );

@@ -1,5 +1,3 @@
-'use client';
-
 import { portfolioData } from '@/lib/portfolioData';
 
 export default function Experience() {
@@ -13,7 +11,7 @@ export default function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="rounded-lg p-6 transition-all hover-scale bg-primary hover-bg-teal-light"
+              className="rounded-lg p-6 bg-primary"
             >
               <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
                 <h3 className="text-2xl font-semibold text-primary">{exp.title}</h3>
