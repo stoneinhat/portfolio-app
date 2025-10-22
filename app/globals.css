@@ -93,8 +93,8 @@ body {
 .font-fira-code { font-family: var(--font-fira-code), monospace; }
 
 /* Performance optimization: Defer rendering of offscreen sections */
-/* Only apply to main content sections, not the sidebar or other layout elements */
-main section {
+/* Disabled due to layout shift issues when scrolling */
+/* main section {
   content-visibility: auto;
   contain-intrinsic-size: auto 500px;
-}
+} */
