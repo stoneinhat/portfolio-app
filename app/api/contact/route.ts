@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
+
 // This is the API route that will be called from your contact form.
 export async function POST(request: Request) {
   try {
@@ -79,7 +82,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Message sent successfully!' }, { status: 200 });
 
   } catch (error)
- {
+  {
     console.error('Error processing request:', error);
     return NextResponse.json({ error: 'An unexpected error occurred.' }, { status: 500 });
   }
