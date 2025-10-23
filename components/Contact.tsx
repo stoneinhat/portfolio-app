@@ -122,7 +122,7 @@ export default function Contact() {
 
         {/* Subtle result toasts below bar */}
         {submitStatus === 'success' && (
-          <div className="mt-3 text-sm text-green-600">Message sent to Slack.</div>
+          <div className="mt-3 text-sm text-green-600">Message sent to Slack. Joshua will respond shortly!</div>
         )}
         {submitStatus === 'error' && (
           <div className="mt-3 text-sm text-red-600">Failed to send. Try again.</div>
