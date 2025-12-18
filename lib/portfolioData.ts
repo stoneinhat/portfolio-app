@@ -93,21 +93,14 @@ export const portfolioData: PortfolioData = {
       description: 'Full-featured e-learning platform for buttercream piping courses with subscription management, e-commerce shop, video library, recipe database, user authentication, and Stripe payment integration.',
       technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Clerk Auth', 'Stripe', 'Strapi CMS', 'Radix UI', 'shadcn/ui'],
       github: 'https://github.com/stoneinhat',
-      demo: 'https://example.com',
+      demo: 'https://thepipedpeony.com',
     },
     {
       title: 'Modern Metals Website',
       description: 'Custom WordPress marketing site with portfolio galleries, team profiles, testimonials, and a contact modal.',
       technologies: ['WordPress', 'PHP', 'JavaScript', 'HTML', 'CSS'],
       github: 'https://github.com/stoneinhat',
-      demo: 'https://example.com',
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather dashboard with forecasts, maps, and location-based weather alerts.',
-      technologies: ['React', 'TypeScript', 'OpenWeather API', 'Tailwind CSS'],
-      github: 'https://github.com/stoneinhat',
-      demo: 'https://example.com',
+      demo: 'https://modernmetalsutah.com',
     },
   ],
   education: [
