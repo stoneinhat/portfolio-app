@@ -1,29 +1,10 @@
 'use client';
 
-import { ExternalLink } from 'lucide-react';
-
-interface Project {
-  title: string;
-  description: string;
-  technologies: string[];
-  demo: string;
-}
+import { ExternalLink, Github } from 'lucide-react';
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Projects() {
-  const projects: Project[] = [
-    {
-      title: 'The Piped Peony Academy',
-      description: 'Full-featured e-learning platform for buttercream piping courses with subscription management, e-commerce shop, video library, recipe database, user authentication, and Stripe payment integration.',
-      technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Clerk Auth', 'Stripe', 'Strapi CMS', 'Radix UI', 'shadcn/ui'],
-      demo: 'https://thepipedpeony.com',
-    },
-    {
-      title: 'Modern Metals Website',
-      description: 'Custom WordPress marketing site with portfolio galleries, team profiles, testimonials, and a contact modal.',
-      technologies: ['WordPress', 'PHP', 'JavaScript', 'HTML', 'CSS'],
-      demo: 'https://modernmetalsutah.com',
-    },
-  ];
+  const projects = portfolioData.projects;
 
   return (
     <section id="projects" className="py-20 px-4 md:px-6">
@@ -33,7 +14,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="rounded-lg p-6 hover-scale-105 transition-all bg-primary hover-bg-teal-light"
+              className="rounded-lg p-6 bg-primary"
             >
               <h3 className="text-xl font-semibold mb-3 text-primary">{project.title}</h3>
               <p className="mb-4 text-primary">{project.description}</p>

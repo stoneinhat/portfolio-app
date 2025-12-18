@@ -1,21 +1,8 @@
-interface Skill {
-  name: string;
-  icon: string;
-  color: string;
-}
+import { portfolioData } from '@/lib/portfolioData';
+import Image from 'next/image';
 
 export default function Skills() {
-  const skills: Skill[] = [
-    { name: 'HTML', icon: '🌐', color: 'bg-orange-600' },
-    { name: 'CSS/SCSS', icon: '🎨', color: 'bg-blue-600' },
-    { name: 'JavaScript', icon: 'JS', color: 'bg-yellow-500' },
-    { name: 'TypeScript', icon: 'TS', color: 'bg-blue-500' },
-    { name: 'Angular', icon: '🅰️', color: 'bg-red-600' },
-    { name: 'Vue', icon: '⚡', color: 'bg-green-500' },
-    { name: 'React', icon: '⚛️', color: 'bg-cyan-500' },
-    { name: 'Git', icon: '📦', color: 'bg-orange-500' },
-    { name: 'Linux', icon: '🐧', color: 'bg-gray-700' },
-  ];
+  const skills = portfolioData.skills;
 
   return (
     <section id="skills" className="py-20 px-4 md:px-6 bg-dark-olive-light">
@@ -25,10 +12,17 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center p-6 rounded-2xl hover-scale-105 transition-all bg-primary hover-bg-teal-light"
+              className="flex flex-col items-center justify-center p-6 rounded-2xl bg-primary"
             >
-              <div className={`w-16 h-16 ${skill.color} rounded-xl flex items-center justify-center text-2xl mb-4 shadow-lg`}>
-                {skill.icon}
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-4 shadow-lg overflow-hidden bg-transparent">
+                <Image
+                  src={skill.icon}
+                  alt={`${skill.name} logo`}
+                  width={64}
+                  height={64}
+                  className="object-contain w-16 h-16"
+                  loading="lazy"
+                />
               </div>
               <h3 className="font-medium text-center text-primary">{skill.name}</h3>
             </div>

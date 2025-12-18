@@ -1,6 +1,8 @@
 'use client';
 
-import { FileDown, User } from 'lucide-react';
+import Image from 'next/image';
+import { FileDown } from 'lucide-react';
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Hero() {
   return (
@@ -18,25 +20,26 @@ export default function Hero() {
           <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full blur-3xl" style={{ backgroundColor: 'rgba(223, 189, 136, 0.15)' }}></div>
           
           <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Large Profile Image (uses the same image as Sidebar top) */}
+            <div className="order-1 md:order-2 flex-shrink-0 w-64 h-64 rounded-full overflow-hidden ring-2 shadow-lg ring-[rgba(97,153,133,0.5)]">
+              <Image
+                src="/Joshua zoomed in.png"
+                alt="Profile Picture"
+                width={256}
+                height={256}
+                className="object-cover w-64 h-64"
+                priority
+              />
+            </div>
+
             {/* Text Content */}
-            <div className="flex-1 z-10">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center bg-secondary">
-                  <User className="w-6 h-6 text-primary" />
-                </div>
-              </div>
+            <div className="order-2 md:order-1 flex-1 z-10">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-primary">
-                Joshua Tesch
+                {portfolioData.name}
               </h1>
               <p className="text-lg md:text-xl mb-6 leading-relaxed max-w-2xl text-primary">
-                Full-Stack Developer and Computer Science student at Salt Lake Community College, 
-                specializing in modern web applications with React, Next.js, and TypeScript. 
-                Experienced in building production-ready solutions—from complex e-learning platforms 
-                with Stripe payments and CMS integration, to custom WordPress sites and API-driven 
-                dashboards. Passionate about creating seamless user experiences and writing clean, 
-                scalable code that solves real-world problems.
+                {portfolioData.about}
               </p>
-              
               <a
                 href="/resume.pdf"
                 download
@@ -45,13 +48,6 @@ export default function Hero() {
                 <FileDown className="w-5 h-5" />
                 Download Resume
               </a>
-            </div>
-
-            {/* Illustration/Image Placeholder */}
-            <div className="flex-shrink-0 w-64 h-64 rounded-full flex items-center justify-center backdrop-blur-sm border bg-gradient-primary" style={{
-              borderColor: 'rgba(97, 153, 133, 0.3)'
-            }}>
-              <div className="text-6xl">💻</div>
             </div>
           </div>
         </div>

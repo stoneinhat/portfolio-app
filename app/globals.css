@@ -17,6 +17,9 @@
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, var(--teal-light) 0%, var(--beige-light) 100%);
   --gradient-background: linear-gradient(135deg, var(--dark-olive) 0%, var(--background) 100%);
+  
+  /* iOS fallback viewport height */
+  --vh: 1vh;
 }
 
 @theme inline {
@@ -31,7 +34,9 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  height: 100vh;
+  height: 100vh;    /* fallback */
+  height: 100svh;   /* small viewport height */
+  height: 100dvh;   /* dynamic viewport height */
   width: 100vw;
 }
 
@@ -83,3 +88,13 @@ body {
 .transition-all { transition: all 0.3s ease; }
 .transition-colors { transition: color 0.3s ease, background-color 0.3s ease; }
 .transition-transform { transition: transform 0.3s ease; }
+
+/* Font families */
+.font-fira-code { font-family: var(--font-fira-code), monospace; }
+
+/* Performance optimization: Defer rendering of offscreen sections */
+/* Disabled due to layout shift issues when scrolling */
+/* main section {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+} */

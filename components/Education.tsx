@@ -1,23 +1,8 @@
-'use client';
-
 import { GraduationCap } from 'lucide-react';
-
-interface EducationItem {
-  degree: string;
-  school: string;
-  period: string;
-  description: string;
-}
+import { portfolioData } from '@/lib/portfolioData';
 
 export default function Education() {
-  const education: EducationItem[] = [
-    {
-      degree: 'Associates of Science in Computer Science',
-      school: 'Salt Lake Community College',
-      period: '2024 - 2025',
-      description: 'Focused on software engineering, algorithms, and web development. Graduated with honors.',
-    },
-  ];
+  const education = portfolioData.education;
 
   return (
     <section id="education" className="py-20 px-4 md:px-6">
@@ -27,7 +12,7 @@ export default function Education() {
           {education.map((edu, index) => (
             <div
               key={index}
-              className="rounded-lg p-6 transition-all hover-scale bg-primary hover-bg-teal-light"
+              className="rounded-lg p-6 bg-primary"
             >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-lg flex-shrink-0 bg-secondary">
@@ -39,6 +24,9 @@ export default function Education() {
                     <span className="text-sm md:text-base text-accent">{edu.period}</span>
                   </div>
                   <p className="mb-3 text-secondary">{edu.school}</p>
+                  {edu.certificates && (
+                    <p className="mb-2 text-primary">{edu.certificates}</p>
+                  )}
                   <p className="leading-relaxed text-primary">{edu.description}</p>
                 </div>
               </div>
