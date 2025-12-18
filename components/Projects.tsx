@@ -1,12 +1,11 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 interface Project {
   title: string;
   description: string;
   technologies: string[];
-  github: string;
   demo: string;
 }
 
@@ -16,22 +15,13 @@ export default function Projects() {
       title: 'The Piped Peony Academy',
       description: 'Full-featured e-learning platform for buttercream piping courses with subscription management, e-commerce shop, video library, recipe database, user authentication, and Stripe payment integration.',
       technologies: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS', 'Clerk Auth', 'Stripe', 'Strapi CMS', 'Radix UI', 'shadcn/ui'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      demo: 'https://thepipedpeony.com',
     },
     {
       title: 'Modern Metals Website',
       description: 'Custom WordPress marketing site with portfolio galleries, team profiles, testimonials, and a contact modal.',
       technologies: ['WordPress', 'PHP', 'JavaScript', 'HTML', 'CSS'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
-    },
-    {
-      title: 'Weather Dashboard',
-      description: 'Beautiful weather dashboard with forecasts, maps, and location-based weather alerts.',
-      technologies: ['React', 'TypeScript', 'OpenWeather API', 'Tailwind CSS'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+      demo: 'https://modernmetalsutah.com',
     },
   ];
 
@@ -60,16 +50,6 @@ export default function Projects() {
               </div>
 
               <div className="flex gap-4">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 transition-colors text-accent hover:text-primary"
-                  aria-label={`View ${project.title} source code`}
-                >
-                  <Github className="w-4 h-4" />
-                  Code
-                </a>
                 <a
                   href={project.demo}
                   target="_blank"
